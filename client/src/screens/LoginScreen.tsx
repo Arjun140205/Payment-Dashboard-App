@@ -13,7 +13,7 @@ export default function LoginScreen({ navigation }: any) {
       const token = res.data.access_token;
       await saveToken(token);
       Alert.alert('Login successful!');
-      navigation.navigate('Dashboard'); // We'll create Dashboard next
+      navigation.navigate('Dashboard');
     } catch (err: any) {
       console.log(err.response?.data || err.message);
       Alert.alert('Login failed', 'Invalid credentials or server error');
@@ -48,5 +48,8 @@ export default function LoginScreen({ navigation }: any) {
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: 'center', padding: 20 },
   title: { fontSize: 28, fontWeight: 'bold', marginBottom: 20, textAlign: 'center' },
-  input: { borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 15, borderRadius: 5 },
+  input: {
+    borderWidth: 1, borderColor: '#ccc', padding: 10,
+    marginBottom: 15, borderRadius: 5
+  },
 });
