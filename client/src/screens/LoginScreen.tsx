@@ -14,6 +14,7 @@ export default function LoginScreen({ navigation }: any) {
       await saveToken(token);
       Alert.alert('Login successful!');
       navigation.navigate('Dashboard');
+      console.log('Navigated to Dashboard');
     } catch (err: any) {
       console.log(err.response?.data || err.message);
       Alert.alert('Login failed', 'Invalid credentials or server error');
@@ -40,6 +41,7 @@ export default function LoginScreen({ navigation }: any) {
         onChangeText={setPassword}
       />
 
+      {/* Button is not inside a form, so no page reload in web */}
       <Button title="Login" onPress={handleLogin} />
     </View>
   );
